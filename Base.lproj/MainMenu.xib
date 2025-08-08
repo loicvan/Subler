@@ -122,6 +122,12 @@
                                     <action selector="saveDocument:" target="-1" id="362"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Save All" alternate="YES" keyEquivalent="s" id="xaq-zF-5IE" userLabel="3">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="saveAllDocuments:" target="-1" id="T62-Ms-TMI"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Save As…" keyEquivalent="S" id="80" userLabel="8">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
