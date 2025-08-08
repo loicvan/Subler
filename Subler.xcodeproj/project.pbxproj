@@ -1415,6 +1415,11 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/MP42Foundation/contrib/mp4v2/",
+					"$(SRCROOT)/MP42Foundation/contrib/Tesseract/**",
+					"$(SRCROOT)/MP42Foundation/contrib/ffmpeg/include/**",
+				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1456,6 +1461,11 @@
 				);
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/MP42Foundation/contrib/mp4v2/",
+					"$(SRCROOT)/MP42Foundation/contrib/Tesseract/**",
+					"$(SRCROOT)/MP42Foundation/contrib/ffmpeg/include/**",
+				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
