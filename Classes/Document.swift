@@ -14,6 +14,8 @@ final class Document: NSDocument {
     private(set) var mp4: MP42File
     private var unsupportedMp4Brand: Bool
 
+	private var documentWindowController : DocumentWindowController? = nil
+
     override init() {
         self.cancelled = false
         self.options = [:]
@@ -38,13 +40,13 @@ final class Document: NSDocument {
     }
 
     override func makeWindowControllers() {
-        let documentWindowController = DocumentWindowController()
-        addWindowController(documentWindowController)
-        documentWindowController.showWindow(self)
+		documentWindowController = DocumentWindowController()
+		addWindowController(documentWindowController!)
+		documentWindowController!.showWindow(self)
 
         if let url = fileURL, unsupportedMp4Brand {
             // We can't edit this file, so ask the user if it wants to import it
-            documentWindowController.showImportSheet(fileURLs: [url])
+            documentWindowController!.showImportSheet(fileURLs: [url])
             fileURL = nil
         }
     }
@@ -265,5 +267,25 @@ final class Document: NSDocument {
             return false
         }
     }
+
+	@objc(handleAddSubsCommand:) func handleAddSubsCommand(_ command: NSScriptCommand) {
+		let args = command.arguments;
+		guard let subs =  args!["FILE"] as? URL else { return }
+		do {
+			let importer = try MP42FileImporter(url: subs)
+			documentWindowController!.didSelect(tracks: importer.tracks, metadata: nil)
+		}
+		catch {
+			return
+		}
+	}
+
+	@objc func durationInSeconds() -> Double {
+		return Double(mp4.duration) / 1000
+	}
+	
+	@objc func dataSize() -> UInt64 {
+		return mp4.dataSize
+	}
 
 }

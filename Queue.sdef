@@ -18,8 +18,24 @@
             </enumerator>
         </enumeration>
 
-        <class-extension extends="document" description="A Subler document.">
-            <cocoa class="SBDocument" />
+		<command name="importsubs" code="MVWRsubs" description="import subs the movie.">
+			<cocoa class="NSScriptCommand"/>
+			<direct-parameter type="document" description="the movie importing subs"/>
+			<parameter type="file" name="from" code="FROM" optional="no" description="the srt sub file">
+				<cocoa key="FILE"/>
+			</parameter>
+		</command>
+
+		<class-extension extends="document" description="A Subler document.">
+			<responds-to command="importsubs">
+				<cocoa method="handleAddSubsCommand:"/>
+			</responds-to>
+			<property name="data size" code="dsiz" type="integer" access="r" description="The data size of the movie in bytes.">
+				<cocoa key="dataSize"/>
+			</property>
+			<property name="duration" code="durn" type="real" access="r" description="The duration of the movie in seconds.">
+				<cocoa key="durationInSeconds"/>
+			</property>
         </class-extension>
 
     </suite>
