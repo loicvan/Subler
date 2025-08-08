@@ -138,6 +138,7 @@
 		A9F680A81FD06E0200018371 /* OutputPrefsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F680A61FD06E0200018371 /* OutputPrefsViewController.swift */; };
 		A9F7F8E01837C44B0036AE7E /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ED7B21180067A2008FD3A8 /* IOKit.framework */; };
 		A9FC6FF61EF2E3280034CCED /* TheTVDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FC6FF51EF2E3280034CCED /* TheTVDBService.swift */; };
+		BC79C2D02E45D33F00DED877 /* ScriptMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC79C2CF2E45D33F00DED877 /* ScriptMenuManager.swift */; };
 		CD71FEA612F1B62600F0A98D /* MetadataSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD71FEA412F1B62600F0A98D /* MetadataSearch.xib */; };
 		CDE8E452174CBBD4009410B5 /* iTunesStores.json in Resources */ = {isa = PBXBuildFile; fileRef = CDE8E451174CBBD4009410B5 /* iTunesStores.json */; };
 /* End PBXBuildFile section */
@@ -446,6 +447,7 @@
 		A9F5820B1DCC861F005F3E92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9F680A61FD06E0200018371 /* OutputPrefsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OutputPrefsViewController.swift; path = Classes/OutputPrefsViewController.swift; sourceTree = "<group>"; };
 		A9FC6FF51EF2E3280034CCED /* TheTVDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TheTVDBService.swift; path = Classes/MetadataImporters/TheTVDBService.swift; sourceTree = "<group>"; };
+		BC79C2CF2E45D33F00DED877 /* ScriptMenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptMenuManager.swift; sourceTree = "<group>"; };
 		CDE8E451174CBBD4009410B5 /* iTunesStores.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = iTunesStores.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -502,6 +504,7 @@
 				A9FAC5FE1BAC3BAC00525E42 /* Document */,
 				A9AF6A7818D0537F00FAAB08 /* Queue */,
 				A9915ABB1F4B26A5003C57D1 /* Presets */,
+				BC79C2CF2E45D33F00DED877 /* ScriptMenuManager.swift */,
 				A9BE561A220307F100FF6BE3 /* Utilities.swift */,
 				A9395E341F8B9ACA004C402B /* MP42FileAdditions.swift */,
 				A91EB968205ABAF400392E1C /* NSWindowAdditions.swift */,
@@ -927,6 +930,7 @@
 				A9395E351F8B9ACA004C402B /* MP42FileAdditions.swift in Sources */,
 				A902E0CA20504FD400445AC8 /* TokenDelegate.swift in Sources */,
 				A91EB969205ABAF400392E1C /* NSWindowAdditions.swift in Sources */,
+				BC79C2D02E45D33F00DED877 /* ScriptMenuManager.swift in Sources */,
 				A9C09C9A1F9A0808007939EE /* EmptyViewController.swift in Sources */,
 				A9C09C981F99F971007939EE /* ExpandedTableView.swift in Sources */,
 				A90240DB2063BD3700E762FA /* MediaTagsController.swift in Sources */,

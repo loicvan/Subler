@@ -151,7 +151,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 
-    func applicationWillFinishLaunching(_ notification: Notification) {
+	func folderExits(_ url: URL) -> Bool {
+		do {
+			if try url.checkResourceIsReachable() {
+				return true
+			}
+		}
+		catch {
+		}
+		return false
+	}
+
+	func applicationWillFinishLaunching(_ notification: Notification) {
         Prefs.register()
         MetadataPrefs.register()
 
@@ -170,6 +181,24 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         if #available(macOS 10.15, *) {
             sendToExternalApp.title = NSLocalizedString("Send to TV", comment: "Send to tv app menu item")
         }
+		if let menuBar = NSApp.mainMenu {
+			if let scriptMenu = ScriptMenuManager.buildScriptMenu() {
+				let item = menuBar.insertItem(withTitle: NSLocalizedString("Scripts", comment: "AppleScript menu"),
+											  action: nil,
+											  keyEquivalent: "",
+											  at: menuBar.numberOfItems - 2)
+				if scriptMenu.numberOfItems > 0 {
+					scriptMenu.addItem(NSMenuItem.separator())
+				}
+				scriptMenu.addItem(withTitle: "Open Scripts Folder", action: #selector(openScriptsFolder(_:)), keyEquivalent: "")
+				menuBar.setSubmenu(scriptMenu, for: item)
+				if let url = ScriptMenuManager.ScriptsURL {
+					if !folderExits(url) {
+						try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
+					}
+				}
+			}
+		}
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -241,6 +270,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         guard let url = URL(string: "https://github.com/SublerApp/Subler/wiki") else { return }
         NSWorkspace.shared.open(url)
     }
+	@IBAction func openScriptsFolder(_ sender: Any) {
+		if let url = ScriptMenuManager.ScriptsURL {
+			NSWorkspace.shared.open(url)
+		}
+	}
 }
 
 extension AppDelegate {
